@@ -1,15 +1,19 @@
 import Image from "next/image"
+import ModeSelector from "@/components/hero/ModeSelector"
 
 export default function HeroBanner() {
   return (
     <section
+      id="painel"
+      aria-labelledby="painel-title"
       className="
         cyber-card
         overflow-hidden
         grid
         grid-cols-1
         lg:grid-cols-4
-        h-[380px]
+        h-auto
+        lg:h-[380px]
         before:absolute
         before:inset-0
         before:bg-gradient-to-br
@@ -31,50 +35,7 @@ export default function HeroBanner() {
           z-10
         "
       >
-        <div>
-          <p className="text-zinc-400 mb-2 tracking-wide">
-            MODO ATUAL
-          </p>
-
-          <h2
-            className="
-              text-7xl
-              font-black
-              text-[#ff004c]
-              tracking-tight
-            "
-            style={{
-              textShadow:
-                "0 0 8px rgba(255,0,80,0.45)"
-            }}
-          >
-            SPORT
-          </h2>
-
-          <p className="text-zinc-500 mt-2">
-            スポーツモード
-          </p>
-        </div>
-
-        <button
-          className="
-            w-fit
-            px-8
-            py-4
-            rounded-2xl
-            bg-white/5
-            border
-            border-white/10
-            hover:border-red-500/40
-            hover:bg-white/10
-            transition-all
-            duration-300
-            text-lg
-            font-medium
-          "
-        >
-          ALTERAR MODO
-        </button>
+        <ModeSelector />
       </div>
 
       {/* IMAGE */}
@@ -83,6 +44,9 @@ export default function HeroBanner() {
           lg:col-span-2
           relative
           overflow-hidden
+          min-h-60
+          sm:min-h-72
+          lg:min-h-0
         "
       >
         <Image
@@ -131,6 +95,7 @@ export default function HeroBanner() {
 
       {/* STATUS PANEL */}
       <div
+        id="status"
         className="
           p-8
           flex
@@ -139,6 +104,7 @@ export default function HeroBanner() {
           gap-8
           relative
           z-10
+          scroll-mt-6
         "
       >
 

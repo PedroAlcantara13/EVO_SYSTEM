@@ -1,42 +1,39 @@
 import {
-  Menu,
   Wifi,
   Bluetooth
 } from "lucide-react"
+import DashboardMenu from "@/components/navbar/DashboardMenu"
+import LiveClock from "@/components/navbar/LiveClock"
 
 export default function TopNavbar() {
   return (
     <header
       className="
         cyber-card
-        px-6
-        py-4
+        cyber-card--menu
+        px-4
+        py-3
+        sm:px-6
+        sm:py-4
         flex
         items-center
         justify-between
+        gap-3
       "
     >
       {/* LEFT */}
-      <div className="flex items-center gap-4">
+      <div className="flex min-w-0 items-center gap-3 sm:gap-4">
+        <DashboardMenu />
 
-        <button
-          className="
-            p-3
-            rounded-xl
-            bg-white/5
-            hover:bg-white/10
-            transition
-          "
-        >
-          <Menu />
-        </button>
-
-        <div>
+        <div className="min-w-0">
           <h1
             className="
-              text-4xl
+              whitespace-nowrap
+              text-2xl
+              sm:text-3xl
+              md:text-4xl
               font-black
-              tracking-wider
+              tracking-wide
             "
           >
             <span className="neon-text">
@@ -46,7 +43,7 @@ export default function TopNavbar() {
             {" "}SYSTEM
           </h1>
 
-          <p className="text-zinc-500 text-sm">
+          <p className="hidden text-sm text-zinc-500 sm:block">
             CYBERPUNK INTERFACE
           </p>
         </div>
@@ -56,11 +53,15 @@ export default function TopNavbar() {
       {/* CENTER */}
       <div
         className="
-          text-3xl
+          hidden
+          md:block
+          text-xl
+          lg:text-3xl
           font-bold
+          tabular-nums
         "
       >
-        22:48
+        <LiveClock />
       </div>
 
       {/* RIGHT */}
@@ -68,22 +69,30 @@ export default function TopNavbar() {
         className="
           flex
           items-center
-          gap-6
+          shrink-0
+          gap-2
+          sm:gap-4
+          lg:gap-6
         "
       >
-        <Wifi className="text-white" />
+        <Wifi aria-hidden="true" className="size-4 text-white sm:size-5" />
 
-        <Bluetooth className="text-white" />
+        <Bluetooth aria-hidden="true" className="hidden size-4 text-white sm:block sm:size-5" />
 
         <div
           className="
-            px-4
-            py-2
+            px-2
+            py-1
+            sm:px-4
+            sm:py-2
             rounded-xl
             border
             border-red-500/30
             neon-text
+            text-sm
+            sm:text-base
           "
+          aria-label="Tensão da bateria: 12,4 volts"
         >
           12.4V
         </div>
